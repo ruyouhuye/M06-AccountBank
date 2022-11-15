@@ -1,7 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(){
-    chargeAccountType();
+$().ready(function(){
+    $.ajax({
+        
+    })
 });
-
-function chargeAccountType(){
-    
-}

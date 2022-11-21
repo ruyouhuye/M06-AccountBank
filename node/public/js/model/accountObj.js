@@ -18,5 +18,5 @@ class accountObj{
         this.entryDate = entryDate;
     }
     //getters & setters
-
+    
 }

@@ -40,6 +40,8 @@ function getData(json){
     get_data_dni(json);
     get_data_name(json);
     get_data_account_type(json);
+    get_data_amount(json);
+    get_data_entry_date(json);
     
     
 
@@ -51,7 +53,6 @@ function get_data_dni(json){
     var dniValue = json[0].dni;
     var dniText = "'#d"+numDni+":text'"
     //let array = Object.values(json);
-    console.log(json[0].dni)
     for (let numDni = 1; numDni <= 10; numDni++) {
         var dniText = "#d"+numDni+":text"
         $(dniText).val(json[numArray].dni);
@@ -63,7 +64,6 @@ function get_data_name(json){
     var numArray =0;
     var dniText = "'#n"+numDni+":text'"
     //let array = Object.values(json);
-    console.log(json[0].dni)
     for (let numDni = 1; numDni <= 10; numDni++) {
         var dniText = "#n"+numDni+":text"
         $(dniText).val(json[numArray].name);
@@ -75,49 +75,54 @@ function get_data_account_type(json){
     var numArray =0;
     var dniText = "'#c"+numDni+":text'"
     //let array = Object.values(json);
-    console.log(json[0].dni)
     for (let numDni = 1; numDni <= 10; numDni++) {
         var dniText = "#c"+numDni+":text"
         $(dniText).val(json[numArray].account_type);
         numArray++;
     }
 }
-function get_data_dni(json){
+function get_data_amount(json){
     var numDni = 1;
     var numArray =0;
-    var dniValue = json[0].dni;
-    var dniText = "'#d"+numDni+":text'"
+    var dniText = "'#a"+numDni+":text'"
     //let array = Object.values(json);
-    console.log(json[0].dni)
     for (let numDni = 1; numDni <= 10; numDni++) {
-        var dniText = "#d"+numDni+":text"
-        $(dniText).val(json[numArray].dni);
+        var dniText = "#a"+numDni+":text"
+        $(dniText).val(json[numArray].amount+" €");
         numArray++;
     }
 }
-function get_data_dni(json){
+function get_data_client_type(json){
     var numDni = 1;
     var numArray =0;
-    var dniValue = json[0].dni;
-    var dniText = "'#d"+numDni+":text'"
+    var dniText = "'#ct"+numDni+":text'"
     //let array = Object.values(json);
-    console.log(json[0].dni)
+
     for (let numDni = 1; numDni <= 10; numDni++) {
-        var dniText = "#d"+numDni+":text"
-        $(dniText).val(json[numArray].dni);
+        if(json[numArray].amount<=10000){
+            var dniText = "#ct"+numDni+":text"
+            $(dniText).val("Poor client");
+        } else if(json[numArray].amount>10000 && json[numArray].amount<100000){
+            var dniText = "#ct"+numDni+":text"
+            $(dniText).val("Normal client");
+        } else if(json[numArray].amount>100001){
+            var dniText = "#ct"+numDni+":text"
+            $(dniText).val("Very rich client");
+        }
+        //var dniText = "#ct"+numDni+":text"
+        //$(dniText).val(json[numArray].dni);
         numArray++;
     }
 }
-function get_data_dni(json){
+function get_data_entry_date(json){
     var numDni = 1;
     var numArray =0;
-    var dniValue = json[0].dni;
-    var dniText = "'#d"+numDni+":text'"
-    //let array = Object.values(json);
-    console.log(json[0].dni)
+    var dniText = "'#e"+numDni+":text'"
+    
     for (let numDni = 1; numDni <= 10; numDni++) {
-        var dniText = "#d"+numDni+":text"
-        $(dniText).val(json[numArray].dni);
+        var dniText = "#e"+numDni+":text"
+        const fecha = new Date(json[numArray].entry_date)
+        $(dniText).val((fecha.getMonth()+1) +"/"+fecha.getDate() + "/" + fecha.getFullYear());
         numArray++;
     }
 }

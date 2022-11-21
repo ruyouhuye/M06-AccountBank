@@ -1,5 +1,4 @@
 $().ready(function(){
-
     $.ajax({
         url : 'http://localhost:3000/client',
  
@@ -33,17 +32,19 @@ $().ready(function(){
             alert('Petición realizada');
         }
     })
+    //amount blur
+    $(".amountInput").blur(function(){
+        console.log("amountinut");
+    })
 
-        
 });
 function getData(json){
     get_data_dni(json);
     get_data_name(json);
     get_data_account_type(json);
     get_data_amount(json);
+    get_data_client_type(json);
     get_data_entry_date(json);
-    get_data_client_type(json)
-    
     
 
 
@@ -99,11 +100,11 @@ function get_data_account_type(json){
 function get_data_amount(json){
     var numDni = 1;
     var numArray =0;
-    var dniText = "'#a"+numDni+":text'"
+    var dniText = "'#a"+numDni+":text'";
     //let array = Object.values(json);
     for (let numDni = 1; numDni <= 10; numDni++) {
         var dniText = "#a"+numDni+":text"
-        $(dniText).val(json[numArray].amount+" €");
+        $(dniText).val(json[numArray].amount+" €");//coger amount
         numArray++;
     }
 }
@@ -113,16 +114,16 @@ function get_data_client_type(json){
     var dniText = "'#ct"+numDni+":text'"
     //let array = Object.values(json);
 
-    for (let numDni = 1; numDni <= 10; numDni++) {
+    for (let numDni = 1; numDni.length; numDni++) {
         if(json[numArray].amount<=10000){
             console.log(json[numArray])
-            var dniText = "#ct"+numDni+":text"
-            $(dniText).val("Poor client");
+            var dniText = "#ct"+numDni+":text";//indica la cerda conde escribe
+            $(dniText).val("Poor client");//lo que hay que escribir dentro de la celda
         } else if(json[numArray].amount>10000 && json[numArray].amount<100000){
-            var dniText = "#ct"+numDni+":text"
+            var dniText = "#ct"+numDni+":text";
             $(dniText).val("Normal client");
         } else if(json[numArray].amount>100001){
-            var dniText = "#ct"+numDni+":text"
+            var dniText = "#ct"+numDni+":text";
             $(dniText).val("Very rich client");
         }
         //var dniText = "#ct"+numDni+":text"

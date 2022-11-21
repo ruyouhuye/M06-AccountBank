@@ -18,6 +18,38 @@ $().ready(function(){
             console.log(json);
             getData(json);
             localStorage_window(json);
+            //------------------------------
+            
+            $(".amountInput").blur(function(){
+                console.log("amountinput");
+                /*
+                var numID = 1;
+                var numArray =0;
+                var idAmountText = "'#a"+numID+":text'";
+                //let array = Object.values(json);
+                for (numID = 1; numID <= 10; numID++) {
+                    //console.log(json[numArray].amount)
+                    idAmountText = "#a"+numID+":text"
+                    amountValue = $(idAmountText).val(json[numArray].amount);//coger amount
+                    //hay que hacer abajo
+                    console.log(amountValue);
+                    if(amountValue<=10000){
+                        console.log(json[numArray])
+                        var idClientTypeText = "#ct"+numID+":text";//indica la cerda conde escribe
+                        $(idClientTypeText).val("Poor client");//lo que hay que escribir dentro de la celda
+                    } else if(amountValue>10000 && amountValue<100000){
+                        var idClientTypeText = "#ct"+numID+":text";
+                        $(idClientTypeText).val("Normal client");
+                    } else if(amountValue>100001){
+                        var idClientTypeText = "#ct"+numID+":text";
+                        $(idClientTypeText).val("Very rich client");
+                    }
+        
+                    numArray++;
+                }
+                */
+            })
+
         },
     
         // código a ejecutar si la petición falla;
@@ -35,31 +67,7 @@ $().ready(function(){
         
     })
     //amount blur
-    $(".amountInput").blur(function(){
-        console.log("amountinput");
-        var numID = 1;
-        var numArray =0;
-        var idAmountText = "'#a"+numID+":text'";
-        //let array = Object.values(json);
-        for (numID = 1; numID <= 10; numID++) {
-            idAmountText = "#a"+numID+":text"
-            amountValue = $(idAmountText).val(json[numArray].amount);//coger amount
-            //hay que hacer abajo
-            if(amountValue<=10000){
-                console.log(json[numArray])
-                var idClientTypeText = "#ct"+numID+":text";//indica la cerda conde escribe
-                $(idClientTypeText).val("Poor client");//lo que hay que escribir dentro de la celda
-            } else if(amountValue>10000 && amountValue<100000){
-                var idClientTypeText = "#ct"+numID+":text";
-                $(idClientTypeText).val("Normal client");
-            } else if(amountValue>100001){
-                var idClientTypeText = "#ct"+numID+":text";
-                $(idClientTypeText).val("Very rich client");
-            }
-
-            numArray++;
-        }
-    })
+    
 });
 function getData(json){
     get_data_dni(json);

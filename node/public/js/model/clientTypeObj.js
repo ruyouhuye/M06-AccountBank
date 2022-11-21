@@ -1,5 +1,5 @@
 class clientTypeObj{
-    //atributos
+    //atributosa
     id;
     accountType;//clientType
     description;

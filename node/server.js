@@ -5,6 +5,7 @@ const express = require('express')
 const bodyParser=require('body-parser')
 var cors = require('cors')
 const app=express()
+const path=require('path')
 
 app.use(cors())
 
@@ -60,10 +61,16 @@ app.get('/client',(req, res)=> {
     });
         
         //end connection.query
-    connection.end();
+    //connection.end();
 
 });//end app de login
+
+
 
 app.listen(port, ()=>{
     console.log(`Aquesta és la nostra API-REST que corre en http://localhost:${port}`)
 });
+
+
+//public es la carpeta que contiene todo lo de JQuery: index.html, carpeta js, carpeta css...
+app.use('/', express.static(path.join(__dirname, 'public')))

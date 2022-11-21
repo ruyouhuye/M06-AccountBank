@@ -1,11 +1,11 @@
 class clientTypeObj{
     //atributos
     id;
-    type;//clientType
+    accountType;//clientType
     description;
 
     //contructor
-    constructor(id,type,description){
+    constructor(id,accountType,description){
         this.id=id;
         this.accountType=accountType;
         this.description=description;
@@ -14,8 +14,8 @@ class clientTypeObj{
     get id(){
         return this.id;
     }
-    get type(){
-        return this.type;
+    get accountType(){
+        return this.accountType;
     }
     get description(){
         return this.description;
@@ -24,8 +24,8 @@ class clientTypeObj{
     set id(id){
         return this.id=id;
     }
-    set type(type){
-        return this.type=type;
+    set accountType(accountType){
+        return this.accountType=accountType;
     }
     set description(description){
         return this.description=description;

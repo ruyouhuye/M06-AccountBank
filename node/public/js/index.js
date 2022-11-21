@@ -17,6 +17,7 @@ $().ready(function(){
             
             console.log(json);
             getData(json);
+            localStorage_window(json);
         },
     
         // código a ejecutar si la petición falla;
@@ -48,6 +49,12 @@ function getData(json){
     
 
 
+}
+function localStorage_window(json){
+    console.log(json.dni)
+    var cliente = new accountObj(json[0].dni, json[0].name, json[0].account_type, json[0].amount, json[0].client_type, json[0].entry_date);
+    localStorage.setItem('test', cliente);
+    console.log('retrievedObject: ', cliente);
 }
 function get_data_dni(json){
     var numDni = 1;

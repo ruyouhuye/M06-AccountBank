@@ -32,6 +32,7 @@ $().ready(function(){
         complete : function(jqXHR, status) {
             alert('Petición realizada');
         }
+        
     })
     //amount blur
     $(".amountInput").blur(function(){
@@ -118,7 +119,7 @@ function get_data_amount(json){
 function get_data_client_type(json){
     var numDni = 1;
     var numArray =0;
-    var dniText = "'#ct"+numDni+":text'"
+    var dniText = "'#ct"+numDni+":text'";
     //let array = Object.values(json);
 
     for (let numDni = 1; numDni.length; numDni++) {

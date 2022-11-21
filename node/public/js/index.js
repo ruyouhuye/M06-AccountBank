@@ -123,6 +123,7 @@ function get_data_client_type(json){
 
     for (let numDni = 1; numDni.length; numDni++) {
         if(json[numArray].amount<=10000){
+            //
             console.log(json[numArray])
             var dniText = "#ct"+numDni+":text";//indica la cerda conde escribe
             $(dniText).val("Poor client");//lo que hay que escribir dentro de la celda

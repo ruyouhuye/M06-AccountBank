@@ -42,6 +42,7 @@ function getData(json){
     get_data_account_type(json);
     get_data_amount(json);
     get_data_entry_date(json);
+    get_data_client_type(json)
     
     
 
@@ -71,15 +72,29 @@ function get_data_name(json){
     }
 }
 function get_data_account_type(json){
+    type_of_accounts = ["Savings account", "Investement account", "Personal account", "Solidary account", "Individual Savings Account", "Fixed deposit account", "Tax-Free Savings Account"]
     var numDni = 1;
     var numArray =0;
-    var dniText = "'#c"+numDni+":text'"
+    var dniText = "#c"+numDni
     //let array = Object.values(json);
+
     for (let numDni = 1; numDni <= 10; numDni++) {
-        var dniText = "#c"+numDni+":text"
-        $(dniText).val(json[numArray].account_type);
+        
+        var dniText = "#c"+numDni
+        //$(dniText).val(json[numArray].account_type);
+
+            //$(dniText).append("<option selected>"+json[numArray].account_type+"</option>");  
+            $(dniText).append("<option selected>"+json[numArray].account_type+"</option>");      
+       
+
+        for(let i = 0; i<type_of_accounts.length; i++){
+            //console.log(type_of_accounts[i]);
+            $(dniText).append("<option>"+type_of_accounts[i]+"</option>");
+        }
         numArray++;
-    }
+
+    }   
+    
 }
 function get_data_amount(json){
     var numDni = 1;
@@ -100,6 +115,7 @@ function get_data_client_type(json){
 
     for (let numDni = 1; numDni <= 10; numDni++) {
         if(json[numArray].amount<=10000){
+            console.log(json[numArray])
             var dniText = "#ct"+numDni+":text"
             $(dniText).val("Poor client");
         } else if(json[numArray].amount>10000 && json[numArray].amount<100000){
